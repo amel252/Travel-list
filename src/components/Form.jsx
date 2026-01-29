@@ -1,21 +1,24 @@
 import React, { useState } from "react";
 
-function Form() {
+function Form({ onAddItems }) {
     const [description, setDescription] = useState("");
     const [quantity, setQuantity] = useState(1);
+
+    //  fonction de submit formulaire
     const submitHandler = (e) => {
         e.preventDefault();
         // si pas de item on return rien
-        if (!description)
-            // console.log("veuillez mettre le item");
-            return;
+        if (!description) return;
+
+        // creer nouveau item contient desc, quan, packed,
         const newItem = {
             description,
             quantity,
             packed: false,
             id: Date.now(),
         };
-        console.log(newItem);
+        onAddItems(newItem);
+
         //  aprés envoyé les donné on remet la desc et quantity a l'état initial
         setDescription("");
         setQuantity(1);
