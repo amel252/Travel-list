@@ -16,11 +16,24 @@ function App() {
     function handleDeleteItem(id) {
         setItems((items) => items.filter((item) => item.id !== id));
     }
+    //  fonction de cocher l'element packed
+    function handleToggleItem(id) {
+        setItems(
+            // on va parcourir les élement , vérif que l'id choisi est identique avec id chercher
+            items.map((item) =>
+                item.id === id ? { ...item, packed: !item.packed } : item
+            )
+        );
+    }
     return (
         <div className="App">
             <Logo />
             <Form onAddItems={handleAddItems} />
-            <PackingList items={items} onDeleteItem={handleDeleteItem} />
+            <PackingList
+                items={items}
+                onDeleteItem={handleDeleteItem}
+                onToggleItem={handleToggleItem}
+            />
             <Stats />
         </div>
     );

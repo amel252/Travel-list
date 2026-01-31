@@ -129,3 +129,138 @@ input[type="checkbox"] {
     font-weight: 700;
     padding: 3.2rem 0;
 }
+
+/* ---------- RESPONSIVE: 950px → 600px ---------- */
+@media (max-width: 950px) and (min-width: 601px) {
+    html {
+        font-size: 56.25%; /* 1rem ≈ 9px */
+    }
+
+    /* TITRE */
+    h1 {
+        font-size: 6.2rem;
+        letter-spacing: -3px;
+        word-spacing: 16px;
+        padding: 2rem 0;
+    }
+
+    /* FORMULAIRE */
+    .add-form {
+        gap: 1.2rem;
+        padding: 2.4rem 1rem;
+    }
+
+    h3 {
+        font-size: 2.2rem;
+        margin-right: 1rem;
+    }
+
+    /* INPUTS & BOUTONS */
+    button,
+    input,
+    select {
+        font-size: 1.6rem;
+        padding: 1rem 2.4rem;
+        border-radius: 6rem;
+    }
+
+    /* LISTE */
+    .list {
+        padding: 3rem 0;
+        gap: 2.4rem;
+    }
+
+    .list ul {
+        width: 90%;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1.6rem;
+    }
+
+    .list li {
+        gap: 1rem;
+    }
+
+    .list li span {
+        font-size: 1.7rem;
+    }
+
+    /* CHECKBOX */
+    input[type="checkbox"] {
+        width: 1.8rem;
+        height: 1.8rem;
+    }
+
+    /* BOUTON DELETE */
+    .list li button {
+        font-size: 1.6rem;
+        padding: 0.6rem;
+    }
+
+    /* STATS */
+    .stats {
+        font-size: 1.8rem;
+        padding: 2.4rem 0;
+    }
+}
+
+/* media queries  */
+@media (max-width: 600px) {
+    html {
+        font-size: 56.25%; /* ~9px */
+    }
+
+    h1 {
+        font-size: 5rem;
+        letter-spacing: -2px;
+        word-spacing: 10px;
+        padding: 1.6rem 0;
+    }
+
+    .add-form {
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+
+    .add-form h3 {
+        margin-right: 0;
+    }
+
+    button,
+    select,
+    input {
+        padding: 1rem 2.4rem;
+        font-size: 1.6rem;
+    }
+
+    .list ul {
+        width: 95%;
+        grid-template-columns: 1fr;
+    }
+
+    .list li {
+        gap: 0.8rem;
+    }
+}
+@media (max-width: 400px) {
+    h1 {
+        font-size: 4rem;
+    }
+
+    body {
+        font-size: 2rem;
+    }
+
+    .list li span {
+        font-size: 1.6rem;
+    }
+
+    input[type="checkbox"] {
+        height: 1.6rem;
+        width: 1.6rem;
+    }
+
+    .list li button {
+        font-size: 1.6rem;
+        padding: 0.4rem;
+    }
+}

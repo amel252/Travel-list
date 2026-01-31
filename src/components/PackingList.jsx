@@ -1,7 +1,7 @@
 import React from "react";
 import Item from "./Item";
 
-function PackingList({ items, onDeleteItem }) {
+function PackingList({ items, onDeleteItem, onToggleItem }) {
     return (
         <div className="list">
             <ul>
@@ -9,6 +9,7 @@ function PackingList({ items, onDeleteItem }) {
                     <Item
                         key={item.id}
                         onDeleteItem={onDeleteItem}
+                        onToggleItem={onToggleItem}
                         item={item}
                     />
                 ))}
