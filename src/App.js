@@ -3,11 +3,19 @@ import Form from "./components/Form";
 import Logo from "./components/Logo";
 import PackingList from "./components/PackingList";
 import Stats from "./components/Stats";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 function App() {
-    //  pour utiliser items je l'ai mis la niveau parent de tout
-    const [items, setItems] = useState([]);
+    //  pour utiliser items je l'ai mis au niveau parent de tout, pour que liste se sauvegarde au rafrichement de la page
+    const [items, setItems] = useState(() => {
+        const savedItems = localStorage.getItem("items");
+        return savedItems ? JSON.parse(savedItems) : [];
+    });
+    //À chaque changement de items, la liste est sauvegardée.
+    useEffect(() => {
+        localStorage.setItem("items", JSON.stringify(items));
+    }, [items]);
+
     //  fonction d'affichage, on fait une copie array et on rajout l'élement en +
     function handleAddItems(item) {
         setItems((items) => [...items, item]);
@@ -25,6 +33,10 @@ function App() {
             )
         );
     }
+    //  fonction de suppression de la liste
+    function handelClearList() {
+        setItems([]);
+    }
     return (
         <div className="App">
             <Logo />
@@ -33,6 +45,7 @@ function App() {
                 items={items}
                 onDeleteItem={handleDeleteItem}
                 onToggleItem={handleToggleItem}
+                onClearList={handelClearList}
             />
             <Stats items={items} />
         </div>
